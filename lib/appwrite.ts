@@ -1,4 +1,4 @@
-import { Account, Avatars, Client, OAuthProvider } from "react-native-appwrite";
+import { Account, Avatars, Client, Databases, OAuthProvider } from "react-native-appwrite";
 import { openAuthSessionAsync } from "expo-web-browser";
 import * as Linking from "expo-linking";
 
@@ -6,6 +6,11 @@ export const config = {
     platform: 'com.wasim.realstate',
     endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT,
     projectID: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID,
+    databaseID: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID,
+    galleriesCollectionID: process.env.EXPO_PUBLIC_APPWRITE_GALLERIES_COLLECTION_ID,
+    reviewsCollectionID: process.env.EXPO_PUBLIC_APPWRITE_REVIEWS_COLLECTION_ID,
+    agentsCollectionID: process.env.EXPO_PUBLIC_APPWRITE_AGENTS_COLLECTION_ID,
+    propertiesCollectionID: process.env.EXPO_PUBLIC_APPWRITE_PROPERTIES_COLLECTION_ID,
 }
 
 export const client = new Client();
@@ -17,6 +22,7 @@ client
 
 export const avatar = new Avatars(client);
 export const account = new Account(client);
+export const databases = new Databases(client);
 
 export async function login () {
     try {
