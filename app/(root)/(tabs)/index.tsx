@@ -11,6 +11,7 @@ import { useAppwrite } from "@/lib/useAppwrite";
 import { getLatestProperties, getProperties } from "@/lib/appwrite";
 import { useEffect } from "react";
 import NoResults from "@/components/noResults";
+import seed from "@/lib/seed";
 
 export default function Index() {
 	const { user } = useGlobalContext();
@@ -25,7 +26,7 @@ export default function Index() {
 		params: {
 			filter: params.filter!,
 			query: params.query!,
-			limit: 6,
+			limit: 10,
 		},
 		skip: true,
 	});
@@ -36,7 +37,7 @@ export default function Index() {
 		refetch({
 			filter: params.filter!,
 			query: params.query!,
-			limit:6,
+			limit:10,
 		})
 	}, [params.filter, params.query]);
 
